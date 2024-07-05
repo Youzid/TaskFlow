@@ -62,7 +62,7 @@ export const ListItem = ({ data, index }: ListItemProps) => {
           >
             <div className="flex justify-end pt-1 items-center gap-2 px-1 ">
               {ListColors.map((color, i) => (
-                <div onClick={() => { execute({ boardId: data.boardId, color, id: data.id }); setListColor(color) }} key={i} className={`w-4 h-4 -translate-y-6 shadow-md duration-150 cursor-pointer rounded  hover:scale-105 saturate-[5] ${color === listColor && "scale-105 border border-black"}`} style={{ backgroundColor: color }}></div>
+                <div onClick={() => { execute({ boardId: data.boardId, color, id: data.id }); setListColor(color) }} key={i} className={`w-4 h-4 -translate-y-6 shadow-md duration-150 cursor-pointer rounded  hover:scale-105 saturate-[3] ${color === listColor && "scale-105 border border-black"}`} style={{ backgroundColor: color }}></div>
               ))}
             </div>
             <ListHeader onAddCard={enableEditing} data={data} />

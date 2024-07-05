@@ -4,9 +4,12 @@ import { revalidatePath } from "next/cache";
 
 import { db } from "@/lib/db";
 import { createSafeAction } from "@/lib/create-safe-action";
+
 import { InputType, ReturnType } from "./types";
 import { auth } from "@clerk/nextjs/server";
-import { UpdateListColorSchema } from "./schema";
+import { UpdateCardSchema } from "./schema";
+import { createAuditLog } from "@/lib/create-audit-log";
+import { ACTION, ENTITY_TYPE } from "@prisma/client";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
@@ -17,21 +20,29 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
-  const { id, boardId, color } = data;
-  let list;
+  const { id, boardId, ...values } = data;
+  let card;
 
   try {
-    list = await db.list.update({
+    card = await db.card.update({
       where: {
         id,
-        boardId,
-        board: {
-          orgId,
+        list: {
+          board: {
+            orgId,
+          },
         },
       },
       data: {
-        color,
+        ...values,
       },
+    });
+
+    await createAuditLog({
+      entityTitle: card.title,
+      entityId: card.id,
+      entityType: ENTITY_TYPE.CARD,
+      action: ACTION.UPDATE,
     });
   } catch (error) {
     return {
@@ -40,7 +51,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   }
 
   revalidatePath(`/board/${boardId}`);
-  return { data: list };
+  return { data: card };
 };
 
-export const updateListColor = createSafeAction(UpdateListColorSchema, handler);
+export const updateCard = createSafeAction(UpdateCardSchema, handler);

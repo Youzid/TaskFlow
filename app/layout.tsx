@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import { Toaster, toast } from "sonner";
+import NetworkCheck from "@/lib/NetworkCheck";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +28,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Toaster richColors position='bottom-center' />
+      <NetworkCheck />
 
       <body className={inter.className}>{children}</body>
     </html>

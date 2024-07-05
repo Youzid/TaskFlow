@@ -35,7 +35,7 @@ export const ListHeader = ({ data, onAddCard }: ListHeaderProps) => {
     setIsEditing(false);
   };
 
-  const { execute } = useAction(updateList, {
+  const { execute, fieldErrors } = useAction(updateList, {
     onSuccess: (data) => {
       toast.success(`Renamed to "${data.title}"`);
       setTitle(data.title);
@@ -92,6 +92,7 @@ export const ListHeader = ({ data, onAddCard }: ListHeaderProps) => {
             id="title"
             placeholder="Enter list title.."
             defaultValue={title}
+            errors={fieldErrors}
             className="text-sm px-[7px] py-1 h-7 font-medium border-transparent hover:border-input focus:border-input transition truncate bg-transparent focus:bg-white"
           />
           <button type="submit" hidden />

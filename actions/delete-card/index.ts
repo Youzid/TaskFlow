@@ -4,9 +4,10 @@ import { revalidatePath } from "next/cache";
 
 import { db } from "@/lib/db";
 import { createSafeAction } from "@/lib/create-safe-action";
+
+import { DeleteCardSchema } from "./schema";
 import { InputType, ReturnType } from "./types";
 import { auth } from "@clerk/nextjs/server";
-import { UpdateListColorSchema } from "./schema";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
@@ -17,30 +18,35 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
-  const { id, boardId, color } = data;
-  let list;
+  const { id, boardId } = data;
+  let card;
 
   try {
-    list = await db.list.update({
+    card = await db.card.delete({
       where: {
         id,
-        boardId,
-        board: {
-          orgId,
+        list: {
+          board: {
+            orgId,
+          },
         },
       },
-      data: {
-        color,
-      },
     });
+
+    // await createAuditLog({
+    //   entityTitle: card.title,
+    //   entityId: card.id,
+    //   entityType: ENTITY_TYPE.CARD,
+    //   action: ACTION.DELETE,
+    // });
   } catch (error) {
     return {
-      error: "Failed to update.",
+      error: "Failed to delete.",
     };
   }
 
   revalidatePath(`/board/${boardId}`);
-  return { data: list };
+  return { data: card };
 };
 
-export const updateListColor = createSafeAction(UpdateListColorSchema, handler);
+export const deleteCard = createSafeAction(DeleteCardSchema, handler);
