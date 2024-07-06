@@ -4,6 +4,7 @@ import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { Toaster, toast } from "sonner";
 import NetworkCheck from "@/lib/NetworkCheck";
+import { EdgeStoreProvider } from "@/lib/edgestore";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,10 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Toaster richColors position='bottom-center' />
-      <NetworkCheck />
-
-      <body className={inter.className}>{children}</body>
+      <EdgeStoreProvider>
+        <Toaster richColors position='bottom-center' />
+        <NetworkCheck />
+        <body className={inter.className}>{children}</body>
+      </EdgeStoreProvider>
     </html>
   );
 }

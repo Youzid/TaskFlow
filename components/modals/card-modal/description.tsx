@@ -14,6 +14,7 @@ import { FormTextarea } from "@/components/form/form-textarea";
 import { FormSubmit } from "@/components/form/form-submit";
 import { Button } from "@/components/ui/button";
 import { CardWithList } from "@/lib/types";
+import FileUploader, { BoxeResponse } from "@/components/FileUploader";
 
 interface DescriptionProps {
   data: CardWithList;
@@ -68,11 +69,21 @@ export const Description = ({ data }: DescriptionProps) => {
     const description = formData.get("description") as string;
     const boardId = params.boardId as string;
 
-    execute({
-      id: data.id,
-      description,
-      boardId,
-    });
+    // execute({
+    //   id: data.id,
+    //   description,
+    //   boardId,
+    // });
+  };
+
+  const handleFileUpload = (boxeResponse: BoxeResponse) => {
+    console.log("File upload result:", boxeResponse);
+    // execute({
+    //   id: data.id,
+    //   description,
+    //   boardId,
+    // });
+    setIsEditing(false)
   };
 
   return (
@@ -81,27 +92,7 @@ export const Description = ({ data }: DescriptionProps) => {
       <div className="w-full">
         <p className="font-semibold text-neutral-700 mb-2">Description</p>
         {isEditing ? (
-          <form action={onSubmit} ref={formRef} className="space-y-2">
-            <FormTextarea
-              id="description"
-              className="w-full mt-2"
-              placeholder="Add a more detailed description"
-              defaultValue={data.description || undefined}
-              errors={fieldErrors}
-              ref={textareaRef}
-            />
-            <div className="flex items-center gap-x-2">
-              <FormSubmit>Save</FormSubmit>
-              <Button
-                type="button"
-                onClick={disableEditing}
-                size="sm"
-                variant="ghost"
-              >
-                Cancel
-              </Button>
-            </div>
-          </form>
+          <FileUploader onSubmit={handleFileUpload} />
         ) : (
           <div
             onClick={enableEditing}
