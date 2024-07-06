@@ -11,6 +11,9 @@ import { CardForm } from "./card-form";
 import { updateListColor } from "@/actions/update-list-color";
 import { useAction } from "@/hooks/use-action";
 import { toast } from "sonner";
+import { Palette } from "lucide-react";
+import { HoverCard, HoverCardTrigger } from "@/components/ui/hover-card";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 
 
@@ -21,7 +24,7 @@ interface ListItemProps {
 
 export const ListItem = ({ data, index }: ListItemProps) => {
   const textareaRef = useRef<ElementRef<"textarea">>(null);
-
+  const [colorsOpen, setColorsOpen] = useState(false)
   const { execute } = useAction(updateListColor, {
     onError: (error) => {
       toast.error(error);
@@ -44,7 +47,8 @@ export const ListItem = ({ data, index }: ListItemProps) => {
     '#f2cfd0',
     '#c4f3aa',
     '#f1f2f4'
-  ]; const [listColor, setListColor] = useState(data.color)
+  ];
+  const [listColor, setListColor] = useState(data.color)
 
   return (
     <Draggable draggableId={data.id} index={index}>
@@ -60,10 +64,13 @@ export const ListItem = ({ data, index }: ListItemProps) => {
             className="w-full rounded-md  shadow-md pb-2 bg-white"
             style={{ backgroundColor: `${listColor}` }}
           >
-            <div className="flex justify-end pt-1 items-center gap-2 px-1 ">
-              {ListColors.map((color, i) => (
-                <div onClick={() => { execute({ boardId: data.boardId, color, id: data.id }); setListColor(color) }} key={i} className={`w-4 h-4 -translate-y-6 shadow-md duration-150 cursor-pointer rounded  hover:scale-105 saturate-[3] ${color === listColor && "scale-105 border border-black"}`} style={{ backgroundColor: color }}></div>
-              ))}
+            <div onMouseEnter={() => setColorsOpen(true)} onMouseLeave={() => setColorsOpen(false)} className="flex justify-end pt-1 items-center gap-2 px-1 relative h-5  ">
+
+              <Palette className={`w-4 h-4 absolute right-1 cursor-pointer ${colorsOpen && "text-main scale-105"}  duration-200`} />
+              {colorsOpen &&
+                ListColors.map((color, i) => (
+                  <div onClick={() => { execute({ boardId: data.boardId, color, id: data.id }); setListColor(color) }} key={i} className={`w-4 h-4 animate-slowfade -translate-x-6 shadow-md duration-150 cursor-pointer rounded  hover:scale-105 saturate-[3] ${color === listColor && "scale-105 border border-black"}`} style={{ backgroundColor: color }}></div>
+                ))}
             </div>
             <ListHeader onAddCard={enableEditing} data={data} />
             <Droppable droppableId={data.id} type="card">

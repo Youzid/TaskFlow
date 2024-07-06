@@ -6,7 +6,7 @@ const ProtectedPage = () => {
 
     return (
         <div>
-            <UserButton />
+            <UserButton appearance={{ variables: { colorPrimary: "#5866DD", colorNeutral: "#5866DD", colorTextSecondary: "#ffff" } }} />
         </div>
     )
 }

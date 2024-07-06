@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 export const Navbar = () => {
     return (
         <div
-            className="fixed top-0 w-full h-14 px-4 border-b shadow-sm bg-white flex items-center"
+            className="fixed top-0 w-full h-14 px-4 border-b shadow bg-slate-100
+ flex items-center"
             data-testid="navbar_wrapper"
         >
             <div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between">
@@ -20,8 +21,8 @@ export const Navbar = () => {
                     >
                         <Link href="/sign-in">Login</Link>
                     </Button>
-                    <Button size="sm" asChild data-testid="navbar_get_taskify_button">
-                        <Link href="/sign-up">Get Taskify for free</Link>
+                    <Button size="sm" variant="primary" className="shadow-main/40 hover:shadow-md duration-200" asChild data-testid="navbar_get_taskFlow_button">
+                        <Link href="/sign-up">SignUp Free</Link>
                     </Button>
                 </div>
             </div>

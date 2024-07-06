@@ -8,9 +8,9 @@ const MarketingLayout = ({
   children: React.ReactNode
 }) => {
   return (
-    <div className='h-full bg-slate-100'>
+    <div className='h-full animate-slowfade2 '>
       <Navbar />
-      <main className='pt-40 pb-20 bg-slate-100'>
+      <main className='pt-40 pb-20 '>
         {children}
       </main>
       <Footer />

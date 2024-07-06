@@ -1,5 +1,7 @@
 import { SignIn } from "@clerk/nextjs";
 
 export default function Page() {
-    return <SignIn />;
+    return <div className="relative">
+        <SignIn appearance={{ variables: { colorPrimary: "#5866DD", } }} />
+    </div>
 }

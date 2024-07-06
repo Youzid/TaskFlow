@@ -4,7 +4,6 @@ import { db } from "@/lib/db";
 import { BoardNavbar } from "./components/board-navbar";
 import { auth } from "@clerk/nextjs/server";
 
-
 export async function generateMetadata({
     params,
 }: {
@@ -56,7 +55,7 @@ const BoardIdLayout = async ({
 
     return (
         <div
-            className="relative h-full  "
+            className="relative  h-full w-full "
 
         >
             <BoardNavbar data={board} />

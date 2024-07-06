@@ -9,7 +9,7 @@ const PlatformLayout = ({
     children: React.ReactNode
 }) => {
     return (
-        <ClerkProvider>
+        <ClerkProvider appearance={{ variables: { colorPrimary: "#5866DD", colorNeutral: "#5866DD", } }}>
             <QueryProvider>
                 <ModalProvider />
                 {children}
