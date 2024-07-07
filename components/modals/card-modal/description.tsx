@@ -26,6 +26,7 @@ interface DescriptionProps {
   data: CardWithList;
 }
 
+
 export const Description = ({ data }: DescriptionProps) => {
   const params = useParams();
   const queryClient = useQueryClient();
@@ -108,7 +109,7 @@ export const Description = ({ data }: DescriptionProps) => {
                       alert('exceeded');
                     },
 
-                    'image.beforeUpload': async function (images: any) {
+                    'image.beforeUpload': async function (this: any, images: any) {
                       if (images[0].size > 1048576) {
                         toast.error("File size too large ");
                         return false;
@@ -130,7 +131,7 @@ export const Description = ({ data }: DescriptionProps) => {
                       } finally {
                         setIsLoading(false)
                       }
-                    },
+                    } as any,
                   },
                 }}
               />

@@ -40,7 +40,7 @@ const DialogContent = React.forwardRef<
       )}
       {...props}
     >
-      <DialogHeader>
+      <DialogHeader className="hidden">
         <DialogTitle className="text-lg font-semibold leading-none tracking-tight">
           Dialog Title
         </DialogTitle>
