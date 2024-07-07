@@ -9,7 +9,6 @@ interface ActivityItemProps {
 }
 
 export const ActivityItem = ({ data }: ActivityItemProps) => {
-  console.log(data)
   return (
     <li className="flex items-center gap-x-2">
       <Avatar className="h-8 w-8">

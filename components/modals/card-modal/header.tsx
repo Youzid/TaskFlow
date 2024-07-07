@@ -19,7 +19,6 @@ interface HeaderProps {
 export const Header = ({ data }: HeaderProps) => {
     const queryClient = useQueryClient();
     const params = useParams();
-    console.log(data)
 
     const { execute, fieldErrors } = useAction(updateCard, {
         onSuccess: (data) => {
