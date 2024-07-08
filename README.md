@@ -1,5 +1,5 @@
-
- ![App Screenshot](https://svgshare.com/i/180u.svg) ## TaskFlow ![App Screenshot](https://svgshare.com/i/180u.svg)
+ ![App Screenshot](https://svgshare.com/i/180u.svg)
+## TaskFlow
 
 
 ## Description
@@ -37,7 +37,6 @@ TaskFlow is a full-stack application built with Next.js 14, designed for users t
 
 ### Screenshots
 
-![App Screenshot](https://svgshare.com/i/180u.svg)
 
 ![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/2.PNG)
 
