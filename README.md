@@ -31,7 +31,15 @@ TaskFlow is a full-stack application built with Next.js 14, designed for users t
 - Unsplash API Integration for Cover Images
 - Activity Logs
 - Actions for Boards, Lists, and Cards
-- Board Limits for Free Users
+
+## Upcoming Features
+
+- Unlimited images fetching (Premium)
+- Unlimited Boards (Premium)
+- Card Tags
+- Dashboard
+- Card Comments
+- Board templates
 
 ### Screenshots
 
