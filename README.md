@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# 📝 TaskFlow ✅
 
-First, run the development server:
+## Description
+Fullstack NextJs 14 TaskFlow app allowing users to create boards with lists and cards that can speed up process of developing software or just to create notes. This app allows users to organize lists and cards using the Drag n' Drop feature.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Seamlessly collaborate with team members through a versatile Software as a Service (SaaS) application
+- Experience secure and user-friendly authentication via Clerk for streamlined access
+- Employ a user-friendly Drag n Drop feature to effortlessly organize lists and cards within boards
+- Utilize workspaces for efficient collaboration, ensuring teams can stay focused on their specific tasks
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **NextJs 14**
+- **React**
+- **Typescript**
+- **Tailwindcss**
+- **Server Actions**
+- **Clerk**
+- **Prisma**
+- **Planet Scale**
+- **MySql**
+- **Shadcn-ui**
+- **Stripe**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Key features
 
-## Learn More
+- Saas App
+- Authentication via Clerk
+- Workspaces
+- Creating boards, lists and cards
+- Organizing lists and cards via Drag n' Drop
+- Unsplash API for random  cover images
+- Activity logs
+- Boards, Lists and Cards actions
+- Boards limits for free users
+- Stripe subscription
 
-To learn more about Next.js, take a look at the following resources:
+### Screenshots
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/1.PNG)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/2.PNG)
 
-## Deploy on Vercel
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/3.PNG)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/4.PNG)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/5.PNG)
+
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/6.PNG)
+
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/7.PNG)
+
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/8.PNG)
+
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/9.png)
+
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/10.png)
+
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/11.PNG)
+
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/12.PNG)
+
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/13.PNG)
+
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/14.PNG)
+
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/15.PNG)
+
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/16.PNG)
+
+![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/17.PNG)
