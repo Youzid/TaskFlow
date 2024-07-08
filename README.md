@@ -1,5 +1,6 @@
 
-# 📝 TaskFlow ✅
+ ![App Screenshot](https://svgshare.com/i/180u.svg) TaskFlow ![App Screenshot](https://svgshare.com/i/180u.svg)
+
 
 ## Description
 TaskFlow is a full-stack application built with Next.js 14, designed for users to create and manage boards, lists, and cards to streamline software development or note-taking. This app leverages a drag-and-drop feature to organize lists and cards effectively.
@@ -36,7 +37,7 @@ TaskFlow is a full-stack application built with Next.js 14, designed for users t
 
 ### Screenshots
 
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/1.PNG)
+![App Screenshot](https://svgshare.com/i/180u.svg)
 
 ![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/2.PNG)
 
