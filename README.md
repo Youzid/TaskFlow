@@ -18,7 +18,6 @@ TaskFlow is a full-stack application built with Next.js 14, designed for users t
 - **Prisma**
 - **MySql**
 - **Shadcn-ui**
-- **Texteditor**
 - **Tailwindcss**
 
 ## Key features
@@ -30,6 +29,7 @@ TaskFlow is a full-stack application built with Next.js 14, designed for users t
 - Drag and Drop for Organizing Lists and Cards
 - Unsplash API Integration for Cover Images
 - Activity Logs
+- Text editor
 - Actions for Boards, Lists, and Cards
 
 ## Upcoming Features
