@@ -2,39 +2,37 @@
 # 📝 TaskFlow ✅
 
 ## Description
-Fullstack NextJs 14 TaskFlow app allowing users to create boards with lists and cards that can speed up process of developing software or just to create notes. This app allows users to organize lists and cards using the Drag n' Drop feature.
+TaskFlow is a full-stack application built with Next.js 14, designed for users to create and manage boards, lists, and cards to streamline software development or note-taking. This app leverages a drag-and-drop feature to organize lists and cards effectively.
 
-- Seamlessly collaborate with team members through a versatile Software as a Service (SaaS) application
-- Experience secure and user-friendly authentication via Clerk for streamlined access
-- Employ a user-friendly Drag n Drop feature to effortlessly organize lists and cards within boards
-- Utilize workspaces for efficient collaboration, ensuring teams can stay focused on their specific tasks
-
+- Collaborate effortlessly with team members using this versatile SaaS application
+- Enjoy secure and easy authentication with Clerk for hassle-free access
+- Utilize a simple Drag and Drop interface to organize lists and cards within boards
+- Add customizable text and images upload to cards using Texteditor feature
+- Leverage workspaces for efficient teamwork, ensuring tasks are managed and focused
+  
 ## Tech stack
-
 - **NextJs 14**
 - **React**
 - **Typescript**
-- **Tailwindcss**
 - **Server Actions**
 - **Clerk**
 - **Prisma**
-- **Planet Scale**
 - **MySql**
 - **Shadcn-ui**
-- **Stripe**
+- **Texteditor**
+- **Tailwindcss**
 
 ## Key features
 
-- Saas App
-- Authentication via Clerk
-- Workspaces
-- Creating boards, lists and cards
-- Organizing lists and cards via Drag n' Drop
-- Unsplash API for random  cover images
-- Activity logs
-- Boards, Lists and Cards actions
-- Boards limits for free users
-- Stripe subscription
+- SaaS Application
+- Clerk Authentication
+- Workspaces for Team Collaboration
+- Board, List, and Card Creation
+- Drag and Drop for Organizing Lists and Cards
+- Unsplash API Integration for Cover Images
+- Activity Logs
+- Actions for Boards, Lists, and Cards
+- Board Limits for Free Users
 
 ### Screenshots
 
