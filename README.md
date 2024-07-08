@@ -36,34 +36,5 @@ TaskFlow is a full-stack application built with Next.js 14, designed for users t
 ### Screenshots
 
 
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/2.PNG)
+![App Screenshot](https://i.ibb.co/WynT68T/image.png)
 
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/3.PNG)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/4.PNG)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/5.PNG)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/6.PNG)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/7.PNG)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/8.PNG)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/9.png)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/10.png)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/11.PNG)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/12.PNG)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/13.PNG)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/14.PNG)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/15.PNG)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/16.PNG)
-
-![App Screenshot](https://raw.githubusercontent.com/RiP3rQ/Trello-Clone-NextJs-/main/screenshots/17.PNG)
