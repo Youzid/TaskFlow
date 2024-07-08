@@ -11,16 +11,23 @@ import { useAction } from "@/hooks/use-action";
 import { updateCard } from "@/actions/update-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { CardWithList } from "@/lib/types";
-import 'froala-editor/css/froala_style.min.css';
-import 'froala-editor/css/froala_editor.pkgd.min.css';
-import FroalaEditorComponent from 'react-froala-wysiwyg'
-import "froala-editor/js/plugins/image.min.js";
-import "froala-editor/js/plugins/file.min.js";
-import "froala-editor/js/plugins/char_counter.min.js"
-import "froala-editor/js/plugins/save.min.js"
+
+
+import { useCallback, useMemo } from "react";
+
+import QuillEditor from "react-quill";
+
+import "react-quill/dist/quill.snow.css";
+
+
 import { Button } from "@/components/ui/button";
 import { useEdgeStore } from "@/lib/edgestore";
 import { FormSubmit } from "@/components/form/form-submit";
+interface EditorProps {
+  data: CardWithList;
+
+}
+
 
 interface DescriptionProps {
   data: CardWithList;
@@ -30,12 +37,12 @@ interface DescriptionProps {
 export const Description = ({ data }: DescriptionProps) => {
   const params = useParams();
   const queryClient = useQueryClient();
-  const [model, setModel] = useState(data.description || "")
   const [isEditing, setIsEditing] = useState(false);
-  const { edgestore } = useEdgeStore();
-  const [isLoading, setIsLoading] = useState(false)
   const formRef = useRef<ElementRef<"form">>(null);
   const textareaRef = useRef<ElementRef<"textarea">>(null);
+  const [isLoading, setIsLoading] = useState(false)
+  const [value, setValue] = useState(data.description || "");
+  const quill = useRef();
 
   const enableEditing = () => {
     setIsEditing(true);
@@ -72,8 +79,9 @@ export const Description = ({ data }: DescriptionProps) => {
       toast.error(error);
     },
   });
+
   const onSubmit = () => {
-    const description = model
+    const description = value
     const boardId = params.boardId as string;
 
     execute({
@@ -82,6 +90,96 @@ export const Description = ({ data }: DescriptionProps) => {
       boardId,
     });
   };
+  const { edgestore } = useEdgeStore();
+
+  const imageHandler = useCallback(() => {
+    const input = document.createElement("input");
+    input.setAttribute("type", "file");
+    input.setAttribute("accept", "image/*");
+    input.click();
+
+    input.onchange = () => {
+      if (input.files && input.files.length > 0) {
+        const file = input.files[0];
+        if (file.size > 1 * 1024 * 1024) {
+          toast.error("Image size exceeds 1MB.");
+          return;
+        }
+        const reader = new FileReader();
+
+        reader.onload = async () => {
+          // @ts-ignore
+          const quillEditor = quill.current.getEditor();
+          const range = quillEditor.getSelection(true);
+          try {
+            setIsLoading(true)
+            const res = await edgestore.publicFiles.upload({
+              file: file,
+            });
+            if (res.url) {
+              quillEditor.insertEmbed(range.index, "image", res.url);
+            }
+          } catch (err) {
+            console.error(err);
+            return false;
+          } finally {
+            setIsLoading(false)
+          }
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        console.error("No file selected or file input is null.");
+      }
+    };
+  }, []);
+
+
+
+  const modules = useMemo(
+    () => ({
+
+      toolbar: {
+        container: [
+          [{ header: [2, 3, 4, false] }],
+          ["bold", "italic", "underline", "blockquote"],
+          [{ color: [] }],
+          [
+            { list: "ordered" },
+            { list: "bullet" },
+            { indent: "-1" },
+            { indent: "+1" },
+          ],
+          ["link", "image"],
+          ["clean"],
+        ],
+        handlers: {
+          image: imageHandler,
+        },
+      },
+      clipboard: {
+        matchVisual: true,
+      },
+    }),
+    [imageHandler]
+  );
+
+  const formats = [
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "list",
+    "bullet",
+    "indent",
+    "link",
+    "image",
+    "color",
+    "clean",
+  ];
+
 
   return (
     <div className="flex items-start gap-x-3 w-full">
@@ -90,53 +188,22 @@ export const Description = ({ data }: DescriptionProps) => {
         <p className="font-semibold text-neutral-700 mb-2">Description</p>
         {isEditing ? (
           <form action={onSubmit} ref={formRef} className="space-y-2 ">
-            <div className="relative">
+            <div className="relative pb-14">
               {isLoading &&
                 <Loader2Icon className="w-8 h-8 text-main animate-spin absolute inset-[47%] z-50" />
               }
-              <FroalaEditorComponent
-                model={model}
-                onModelChange={(e: string) => { setModel(e) }}
-                tag='textarea'
-                config={{
-                  placeholderText: 'Edit Your Content Here!',
-                  charCounterCount: true,
-                  charCounterMax: 80,
-                  imageMaxSize: 1 * 1024 * 1024,
-                  imageAllowedTypes: ['jpeg', 'jpg', 'png'],
-                  events: {
-                    'charCounter.exceeded': function () {
-                      alert('exceeded');
-                    },
-
-                    'image.beforeUpload': async function (this: any, images: any) {
-                      if (images[0].size > 1048576) {
-                        toast.error("File size too large ");
-                        return false;
-                      }
-                      const data = new FormData();
-                      data.append('image', images[0]);
-                      try {
-                        setIsLoading(true)
-                        const res = await edgestore.publicFiles.upload({
-                          file: images[0],
-                        });
-                        if (res.url) {
-                          this.image.insert(res.url, null, null, this.image.get());
-                        }
-                        return false;
-                      } catch (err) {
-                        console.error(err);
-                        return false;
-                      } finally {
-                        setIsLoading(false)
-                      }
-                    } as any,
-                  },
-                }}
-              />
+              <QuillEditor
+                // @ts-ignore
+                ref={(el) => (quill.current = el)}
+                className={`h-[350px] w-[500px] p-4 `}
+                theme="snow"
+                value={value}
+                formats={formats}
+                modules={modules}
+                onChange={(value) => setValue(value)}
+              >
+              </QuillEditor>
             </div>
-
             <div className="flex items-center gap-x-2">
               <FormSubmit isLoading={isLoading}>Save</FormSubmit>
               <Button
@@ -149,6 +216,7 @@ export const Description = ({ data }: DescriptionProps) => {
               </Button>
             </div>
           </form>
+
         ) : (
           <div
             onClick={enableEditing}
