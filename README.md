@@ -3,7 +3,7 @@
 TaskFlow is a full-stack application built with Next.js 14, designed for users to create and manage boards, lists, and cards to streamline software development or Business note-taking. This app leverages a drag-and-drop feature to organize lists and cards effectively.
 
 - Collaborate effortlessly with team members using this versatile SaaS application
-- Enjoy secure and easy authentication with Clerk for hassle-free access
+- Enjoy secure and easy authentication with Clerk
 - Utilize a simple Drag and Drop interface to organize lists and cards within boards
 - Add customizable text and images upload to cards using Texteditor feature
 - Leverage workspaces for efficient teamwork, ensuring tasks are managed and focused
